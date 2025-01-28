@@ -1,0 +1,23 @@
+Test
+
+<Directory "C:/xampp/htdocs/Foro2Bim_dw">
+AllowOverride All
+Require all granted
+</Directory>
+
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<Directory "C:/xampp/htdocs/Foro2Bim_dw/config">
+    Order Deny,Allow
+    Deny from all
+    Allow from 192.168.100.237
+</Directory>
+    
+Options -Indexes
+
+<FilesMatch "\.(htaccess|htpasswd|ini|php|fla|psd|log|sh)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
